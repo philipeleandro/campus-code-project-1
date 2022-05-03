@@ -1,11 +1,11 @@
 <h1>Galpões & Estoque</h1>
 
-<h2>Galpões</h1>
+<h1>Galpões</h1>
 <% @warehouses.each do |w| %>
-  <%= w.name %>
+  <%= link_to w.name, w %>
   Código: <%= w.code %>
   Cidade: <%= w.city %>
-  <%= w.area %>m²
+  <%= w.area %>m²<br>
 <% end %>
 
 <% if @warehouses.empty? %>
