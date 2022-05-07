@@ -100,5 +100,19 @@ RSpec.describe Warehouse, type: :model do
         expect(jua_warehouse_two.valid?).to eq false
       end
     end
+
+    context 'length' do
+      it 'code length must be 3' do
+        # Arrange
+        warehouse_first = Warehouse.new(code: "RIO")
+        warehouse_second = Warehouse.new(code: "JDN")
+
+        # Act
+
+        # Assert
+        expect(warehouse_first.code.length).to eq 3
+        expect(warehouse_second.code.length).to eq 3
+      end
+    end
   end
 end
