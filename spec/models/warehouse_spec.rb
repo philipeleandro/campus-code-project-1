@@ -102,16 +102,16 @@ RSpec.describe Warehouse, type: :model do
     end
 
     context 'length' do
-      it 'code length must be 3' do
+      it 'false when code length is not 3' do
         # Arrange
-        warehouse_first = Warehouse.new(code: "RIO")
-        warehouse_second = Warehouse.new(code: "JDN")
+        warehouse = Warehouse.create(name: 'Aeroporto SP', code: 'GR', city: 'Guarulhos', area: 100_000, address: 'Avenida do Aeroporto, 1000', cep: '15000-000', description: 'Galpão destinado para cargas internacionais')
+        jua_warehouse = Warehouse.create(name: 'Juazeiro', code: 'JDNE', city: 'Juazeiro do Norte', area: 20_000, address: 'Avenida aeroporto, 1500', cep: '63030-00a', description: 'Galpão novo')
 
         # Act
 
         # Assert
-        expect(warehouse_first.code.length).to eq 3
-        expect(warehouse_second.code.length).to eq 3
+        expect(warehouse.valid?).to eq false
+        expect(jua_warehouse.valid?).to eq false
       end
     end
   end
