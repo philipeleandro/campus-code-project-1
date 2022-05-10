@@ -11,7 +11,7 @@ describe 'User sees suppliers' do
   end
 
   it 'success' do 
-    Supplier.create!(corporate_name: 'Guardians LTDA', brand_name: 'Guardians', registration_number: '4132600800010', full_address: 'Rua da Vitória, 1500', city: 'Bauru', state: 'São Paulo', email: 'guardians@example.com')
+    Supplier.create!(corporate_name: 'Guardians LTDA', brand_name: 'Guardians', registration_number: '4132600800010', full_address: 'Rua da Vitória, 1500', city: 'Bauru', state: 'São Paulo', email: 'guardians@example.com', phone: '12456387894')
 
     visit root_path
     within('nav') do
