@@ -1,0 +1,25 @@
+<h1>Fornecedores</h1>
+
+<section id="suppliers">
+  <% if @suppliers.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Local</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @suppliers.each do |supplier| %>
+          <tr>
+            <td><%= supplier.brand_name%></td>
+            <td><%= supplier.city %> - <%= supplier.state %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>Não há fornecedores cadastrados</p>
+  <% end %>
+</section>
+<%= link_to 'Voltar', root_path%>
