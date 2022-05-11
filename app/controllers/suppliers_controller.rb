@@ -18,6 +18,10 @@ class SuppliersController < ApplicationController
     end
   end
 
+  def show
+    @supplier = Supplier.find(params[:id])
+  end
+  
   private
   def supplier_params
     params.require(:supplier).permit(:corporate_name, :brand_name, :registration_number, :full_address, :city, :state, :email, :phone)

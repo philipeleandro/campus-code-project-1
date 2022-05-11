@@ -4,13 +4,13 @@ RSpec.describe Supplier, type: :model do
   describe '#valid?' do
     context 'presence' do
       it 'false when registration number is empty' do
-        supplier = Supplier.create(corporate_name: 'Test LTDA', brand_name: 'Test', city: 'Rio de Janeiro', state: 'Rio de Janeiro', registration_number: '', full_address: 'Avenida aeroporto, 1000', email: 'philipe-leandro@hotmail.com', phone: '88996268196')
+        supplier = Supplier.create(corporate_name: 'Test LTDA', brand_name: 'Test', city: 'Rio de Janeiro', state: 'Rio de Janeiro', registration_number: '', full_address: 'Avenida aeroporto, 1000', email: 'test@gmail.com', phone: '88978945632')
 
         expect(supplier.valid?).to eq false
       end
 
       it 'false when phone number is empty' do
-        supplier = Supplier.create(corporate_name: 'Test LTDA', brand_name: 'Test', city: 'Rio de Janeiro', state: 'Rio de Janeiro', registration_number: '1234567891234', full_address: 'Avenida aeroporto, 1000', email: 'philipe-leandro@hotmail.com', phone: '')
+        supplier = Supplier.create(corporate_name: 'Test LTDA', brand_name: 'Test', city: 'Rio de Janeiro', state: 'Rio de Janeiro', registration_number: '1234567891234', full_address: 'Avenida aeroporto, 1000', email: 'test@gmail.com', phone: '')
 
         expect(supplier.valid?).to eq false
       end
