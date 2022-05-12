@@ -10,7 +10,7 @@ describe 'User register a new product model' do
     expect(page).to have_field('Peso')
     expect(page).to have_field('Altura')
     expect(page).to have_field('Largura')
-    expect(page).to have_field('Comprimento')
+    expect(page).to have_field('Profundidade')
     expect(page).to have_field('Código SKU')
     expect(page).to have_field('Fornecedor')
   end
@@ -25,7 +25,7 @@ describe 'User register a new product model' do
     fill_in 'Peso', with: '8000'
     fill_in 'Largura', with: '70'
     fill_in 'Altura', with: '45'
-    fill_in 'Comprimento', with: '10'
+    fill_in 'Profundidade', with: '10'
     fill_in 'Código SKU', with: 'BBCDEFG45125SDASD8D8'
     select 'Samsung', from: 'Fornecedor'
     click_on 'Cadastrar'
@@ -46,7 +46,7 @@ describe 'User register a new product model' do
     expect(page).to have_content('Nome não pode ficar em branco')
     expect(page).to have_content('Peso não pode ficar em branco')
     expect(page).to have_content('Altura não pode ficar em branco')
-    expect(page).to have_content('Comprimento não pode ficar em branco')
+    expect(page).to have_content('Profundidade não pode ficar em branco')
     expect(page).to have_content('Largura não pode ficar em branco')
     expect(page).to have_content('Código SKU não pode ficar em branco')
     expect(page).to have_content('Código SKU não possui o tamanho esperado (20 caracteres)')
@@ -54,6 +54,6 @@ describe 'User register a new product model' do
     expect(page).to have_content('Peso não é um número')
     expect(page).to have_content('Largura não é um número')
     expect(page).to have_content('Altura não é um número')
-    expect(page).to have_content('Comprimento não é um número')
+    expect(page).to have_content('Profundidade não é um número')
   end
 end
