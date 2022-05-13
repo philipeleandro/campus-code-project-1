@@ -17,6 +17,7 @@ describe 'User register a new product model' do
 
   it 'success' do
    Supplier.create!(corporate_name: 'Samsung LTDA', brand_name: 'Samsung', registration_number: '1234567897894', full_address: 'Rua teste, 1000', city: 'São Paulo', state: 'São Paulo', email: 'example@gmail.com', phone: '11254637894')
+   Supplier.create!(corporate_name: 'DELL LTDA', brand_name: 'DELL', registration_number: '1234567897844', full_address: 'Rua teste, 10', city: 'São Paulo', state: 'São Paulo', email: 'example@gmail.com', phone: '11254637894')
 
     visit root_path
     click_on 'Modelos de produtos'
