@@ -1,7 +1,19 @@
 require 'rails_helper'
 
 describe 'User sees product models' do
+  it 'if the user is authenticated' do
+    visit root_path
+    within('nav') do
+      click_on 'Modelos de produtos'
+    end
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   it 'in menu' do
+    user = User.create!(email: 'philipe@gmail.com', password: 'password')
+
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Modelos de produtos'
@@ -11,11 +23,13 @@ describe 'User sees product models' do
   end
 
   it 'success' do
+    user = User.create!(email: 'philipe@gmail.com', password: 'password')
     supplier = Supplier.create!(corporate_name: 'Samsung LTDA', brand_name: 'Samsung', registration_number: '1234567897894', full_address: 'Rua teste, 1000', city: 'São Paulo', state: 'São Paulo', email: 'example@gmail.com', phone: '11254637894')
 
     ProductModel.create!(name: 'TV 32', weigth: 8000, width: 70,height: 45, depth: 10, sku: 'BBCDEFG45125SDASD8D8', supplier: supplier)
     ProductModel.create!(name: 'Notebook', weigth: 2500, width: 35,height: 23, depth: 20, sku: 'BBCDEFG45125SDASD8D7', supplier: supplier)
 
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Modelos de produtos'
@@ -30,6 +44,9 @@ describe 'User sees product models' do
   end
 
   it 'does not exist register product model' do
+    user = User.create!(email: 'philipe@gmail.com', password: 'password')
+
+    login_as(user)
     visit root_path
     click_on 'Modelos de produtos'
 
